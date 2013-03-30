@@ -1,0 +1,15 @@
+[0m[[0minfo[0m] [0mCompiling 4 Scala sources and 5 Java sources to /home/mgordo/workspace/grapho/target/scala-2.10/classes...[0m
+[0m[[31merror[0m] [0m/home/mgordo/workspace/mongogo/conf/routes:8: value group is not a member of object controllers.Application[0m
+[0m[[31merror[0m] [0mGET     /groups                     controllers.Application.group()[0m
+[0m[[31merror[0m] [0m/home/mgordo/workspace/mongogo/conf/routes:10: value deleteGroup is not a member of object controllers.Application[0m
+[0m[[31merror[0m] [0mPOST    /groups/:id/delete          controllers.Application.deleteGroup(id: String)[0m
+[0m[[31merror[0m] [0m/home/mgordo/workspace/mongogo/conf/routes:9: value newGroup is not a member of object controllers.Application[0m
+[0m[[31merror[0m] [0mPOST    /groups                     controllers.Application.newGroup()[0m
+[0m[[31merror[0m] [0m/home/mgordo/workspace/mongogo/conf/routes:8: value group is not a member of object controllers.Application[0m
+[0m[[31merror[0m] [0mGET     /groups                     controllers.Application.group()[0m
+[0m[[31merror[0m] [0m/home/mgordo/workspace/mongogo/conf/routes:9: value newGroup is not a member of object controllers.Application[0m
+[0m[[31merror[0m] [0mPOST    /groups                     controllers.Application.newGroup()[0m
+[0m[[31merror[0m] [0m/home/mgordo/workspace/mongogo/conf/routes:10: value deleteGroup is not a member of object controllers.Application[0m
+[0m[[31merror[0m] [0mPOST    /groups/:id/delete          controllers.Application.deleteGroup(id: String)[0m
+[0m[[31merror[0m] [0m6 errors found[0m
+[0m[[31merror[0m] [0m(compile:[31mcompile[0m) Compilation failed[0m

@@ -1,0 +1,20 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index()
+
+GET		/vertex						controllers.Application.list()
+POST    /vertex/:id/delete			controllers.Application.deleteVertex(id: String)
+POST    /vertex/new					controllers.Application.addVertex()
+POST    /vertex/update				controllers.Application.doUpdateVertex(id: String)
+GET     /vertex/:id/update			controllers.Application.updateVertex(id: String)
+
+
+# GET     /groups                     controllers.Application.group()
+# POST    /groups                     controllers.Application.newGroup()
+# POST    /groups/:id/delete          controllers.Application.deleteGroup(id: String)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

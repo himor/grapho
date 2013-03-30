@@ -1,0 +1,36 @@
+@(vert: Vertex, vertexForm: Form[Vertex]) 
+
+@import helper._
+
+@impliciteFieldConstructor = @{ FieldConstructor(tbinput.render) } 
+
+
+@main("Vertex") {
+    
+  <h2>Update vertex</h2>
+
+	@form(routes.Application.doUpdateVertex(vert.id.toString())) {
+	<fieldset>
+	
+		@inputText(vertexForm("name"), '_label -> "Vertex name")
+		@input(vertexForm("zoom"), '_label -> "Vertex zoom") { (id, name, value, args) =>
+	    <input type="number" name="@name" id="@id" @toHtmlArgs(args) value="@value">
+		} 
+		@inputText(vertexForm("lat"), '_label -> "Latitude", 'class -> "input-small")
+		@inputText(vertexForm("lon"), '_label -> "Longitude", 'class -> "input-small")
+		@inputText(vertexForm("alt"), '_label -> "Altitude", 'class -> "input-small")
+		@inputText(vertexForm("size"), '_label -> "Size", 'class -> "input-small")
+		
+		
+		@input(vertexForm("mtype"), '_label -> "Type") { (id, name, value, args) =>
+	    <input type="number" class="input-small" name="@name" id="@id" @toHtmlArgs(args)  value="@value">
+		}
+		<label></label>
+		<button type="submit" class="btn primary">Update</button>
+		
+	</fieldset>
+	}
+	 
+} { 
+Update Vertex
+}

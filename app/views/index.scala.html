@@ -1,0 +1,69 @@
+@(vert: List[Vertex], vertexForm: Form[Vertex]) 
+
+@import helper._
+
+@impliciteFieldConstructor = @{ FieldConstructor(tbinput.render) } 
+
+
+@main("Vertex") {
+    
+  <h2>Add a new vertex</h2>
+
+	@form(routes.Application.addVertex()) {
+	<fieldset>
+	
+		@inputText(vertexForm("name"), '_label -> "Vertex name")
+		@input(vertexForm("zoom"), '_label -> "Vertex zoom") { (id, name, value, args) =>
+	    <input type="number" name="@name" id="@id" @toHtmlArgs(args) value="0">
+		} 
+		@inputText(vertexForm("lat"), '_label -> "Latitude", 'class -> "input-small")
+		@inputText(vertexForm("lon"), '_label -> "Longitude", 'class -> "input-small")
+		@inputText(vertexForm("alt"), '_label -> "Altitude", 'class -> "input-small")
+		
+		@input(vertexForm("size"), '_label -> "Size") { (id, name, value, args) =>
+	    <input type="number" class="input-small" name="@name" id="@id" @toHtmlArgs(args) value="0">
+		}
+		
+		@input(vertexForm("mtype"), '_label -> "Type") { (id, name, value, args) =>
+	    <input type="number" class="input-small" name="@name" id="@id" @toHtmlArgs(args) value="0">
+		}
+		<label></label>
+		<button type="submit" class="btn primary">Create</button>
+		
+	</fieldset>
+	}
+	
+	  <h3>@vert.size() vertex(s)</h3>
+  
+  <table class="table table-striped table-bordered table-hover table-condensed">
+  <tr>
+  	<th style="width:14%;">id</th>
+  	<th style="width:16%;">full name</th>
+  	<th style="width:10%;">name</th>
+  	<th style="width:8%;">zoom</th>
+  	<th style="width:8%;">lat</th>
+  	<th style="width:8%;">long</th>
+  	<th style="width:8%;">alt</th>
+  	<th style="width:8%;">size</th>
+  	<th style="width:8%;">type</th>
+  	<th style="width:12%;"></th>
+  </tr>
+  @for(v <- vert) {
+	<tr>
+		<td>@v.id</td> 
+		<td>@v.fullName</td>
+		<td>@v.name</td>
+		<td>@v.zoom</td>
+		<td>@v.lat</td>
+		<td>@v.lon</td>
+		<td>@v.alt</td>
+		<td>@v.size</td>
+		<td>@v.mtype</td>
+		<td><a href="@routes.Application.deleteVertex(v.id.toString())">Delete</a> <a href="@routes.Application.updateVertex(v.id.toString())">Update</a> </td>
+  	</tr>
+  }
+  </table>
+	 
+} { 
+New Vertex
+}
